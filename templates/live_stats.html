@@ -48,31 +48,16 @@
             </div>
         </div>
 
-        <script>
-            window.playersData = {{ players_data|tojson }};
-        </script>
-
-<!--        <script src="{{ url_for('static', filename='js/live_stats.js') }}"></script>-->
-        <script type="module" src="/static/js/live_stats/main.js"></script>
-<!--        <script src="{{ url_for('static', filename='js/live_stats/main.js') }}"></script>-->
-
-
-
     </div>
 
     <script type="module">
-        // Импортируем модули
-        import { initSubstitutions } from "{{ url_for('static', filename='js/live_stats/features/substitutions.js') }}";
-        import { initTeamManagement } from "{{ url_for('static', filename='js/live_stats/features/team_management.js') }}";
+        import { initApp } from "{{ url_for('static', filename='js/live_stats/main.js') }}";
 
-        // Передаем данные из шаблона в JS
-        window.playersData = {{ players_data|tojson }};
-        window.teamData = {{ team_data|tojson }};
-
-        // Инициализация при загрузке страницы
         document.addEventListener('DOMContentLoaded', () => {
-            initSubstitutions();
-            initTeamManagement();
+            initApp({
+                playersData: {{ players_data|tojson }},
+                teamData: {{ team_data|tojson }}
+            });
         });
     </script>
 </body>

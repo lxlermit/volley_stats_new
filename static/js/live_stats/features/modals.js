@@ -1,5 +1,5 @@
 import { appState, matchState } from '../core/state.js';
-import { returnPlayerToBench, resetField, clearAllPlayers } from '../features/players.js';
+import { returnPlayerToBench, resetField } from '../features/players.js';
 import { flipCourt } from '../features/court.js';
 import { recordPlayerAction } from '../features/actions.js';
 import { updateScoreDisplay } from '../features/score.js';
@@ -93,7 +93,15 @@ export function showAttackOptionsModal(button) {
     window.longPressTimer = null;
 }
 
-export function initSettingsModal() {
+export function initSettingsModal(dependencies = {}) {
+    const {
+        clearAllPlayers,
+        flipCourt,
+        updateServeUI,
+        updateZone1Actions
+    } = dependencies;
+
+    document.getElementById('clear-players').addEventListener('click', clearAllPlayers);
     const modal = document.getElementById('settings-modal');
     if (!modal) return;
 
