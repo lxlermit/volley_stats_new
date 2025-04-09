@@ -1,0 +1,919 @@
+/* Основные стили для страницы расстановки */
+
+html {
+    touch-action: manipulation; /* Оптимизирует обработку касаний */
+}
+
+body {
+    -webkit-text-size-adjust: 100%; /* Предотвращает авто-масштабирование текста */
+    -webkit-tap-highlight-color: transparent; /* Убирает подсветку при тапе */
+    -webkit-user-select: none; /* Запрещает выделение текста */
+    user-select: none;
+}
+
+/* Для интерактивных элементов */
+button, .player-field, .action-field {
+    touch-action: manipulation;
+}
+
+/* Контейнер игроков */
+.players-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 2px;
+    padding: 2px;
+    background: #bcd7f3;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Карточки игроков */
+.player-tag {
+    padding: 4px 4px;
+    border-radius: 8px;
+    color: #333;
+    font-weight: bold;
+    cursor: grab;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    margin: 0;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+    font-size: 1.8em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.08);
+    position: relative;
+}
+
+/* Номер игрока (стилизация) */
+.player-tag::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    font-weight: bold;
+}
+
+/* Эффекты при наведении */
+.player-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+/* Стили для блока счета */
+.score-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #cbbdbd;
+    padding: 3px 5px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    gap: 10px;
+    font-size: 3em;
+}
+
+.point-button {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.our-point {
+    background: green;
+    color: white;
+}
+
+.opponent-point {
+    background: red;
+    color: white;
+}
+
+.team-name {
+    font-weight: bold;
+    flex: 1;
+    text-align: center;
+    padding: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.3em;
+}
+
+.score-display {
+    font-size: 2em;
+    font-weight: bold;
+    min-width: 120px;
+    text-align: center;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.our-team {
+    color: green;
+}
+
+.opponent-team {
+    color: red;
+}
+
+.our-score {
+    color: green;
+}
+
+.opponent-score {
+    color: red;
+}
+
+/* Стили для площадки */
+.court-area {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 1px;
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.net-label {
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;  /* Жирная надпись */
+    padding: 1px;
+    background: #dfb9b6;
+    border-radius: 5px;
+    margin: 0 0 1px 0;
+    order: 1;
+}
+
+.court-layout {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    order: 2;
+
+}
+
+.net-zone, .back-zone {
+    display: grid;
+    gap: 1px;
+    padding: 2px;
+    background: #f0f0f0;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+
+}
+
+.net-zone {
+    grid-template-rows: repeat(5, auto);
+}
+
+.back-zone {
+    grid-template-rows: repeat(4, auto);
+}
+
+.action-row, .receive-row {
+    display: flex;
+    gap: 1px;
+    margin-bottom: 1px;
+    max-width: 100%;
+}
+
+.action-field {
+    flex: 1;
+    min-height: 130px;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 28px;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.action-field:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.court-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 1198px; /* Или ваше значение */
+            margin: 0 auto;
+}
+
+/* Цвета кнопок действий */
+.attack-plus { background-color: #c8e6c9; border: 2px solid #4CAF50; }
+.attack { background-color: #ffffff; border: 2px solid #bdbdbd; }
+.attack-minus { background-color: #ffcdd2; border: 2px solid #f44336; }
+.block-plus { background-color: #c8e6c9; border: 2px solid #4CAF50; }
+.block { background-color: #ffffff; border: 2px solid #bdbdbd; }
+.block-minus { background-color: #ffcdd2; border: 2px solid #f44336; }
+.pass { background-color: #ffffff; border: 2px solid #bdbdbd; }
+.defense { background-color: #ffffff; border: 2px solid #bdbdbd; }
+.touch-minus { background-color: #ffcdd2; border: 2px solid #f44336; }
+.receive-plus { background-color: #c8e6c9; border: 2px solid #4CAF50; }
+.receive-minus { background-color: #ffcdd2; border: 2px solid #f44336; }
+
+.player-field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: all 0.2s;
+    min-height: 100px;
+}
+
+.player-field.empty {
+    background-color: #e0e0e0;
+    color: #666;
+    font-size: 40px;
+    border: 2px dashed #999;
+    min-height: 100px;
+}
+
+.player-field.filled {
+    color: #333;
+    cursor: pointer;
+    min-height: 100px;
+}
+
+.player-field.filled:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+/* Стили для перевернутого поля */
+.flipped .net-label {
+    order: 2;
+    margin: 15px 0 0 0;
+}
+
+.flipped .court-layout {
+    order: 1;
+}
+
+/* Стили для блока партий */
+.sets-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 2px 0;
+    padding: 2px;
+    background: #bcd7f3;
+    border-radius: 8px;
+}
+
+.set {
+    padding: 5px 30px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    font-size: 2.5em;
+}
+
+/* Стили для блока управления */
+.game-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.control-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    min-width: 160px;
+    justify-content: center;
+    font-size: 1em;
+    flex-shrink: 0;
+}
+
+.control-button .icon {
+    font-size: 1.2em;
+}
+
+/* Цвета кнопок */
+.mirror-btn {
+    background: #4682B4;
+    color: white;
+}
+
+.warning-btn {
+    background: #FFA500;
+    color: white;
+}
+
+.danger-btn {
+    background: #DC143C;
+    color: white;
+}
+
+.cancel-btn {
+    background: #6c757d;
+    color: white;
+}
+
+.settings-btn {
+    background: #333;
+    color: blue;
+    display: block;        /* Чтобы кнопка занимала всю ширину */
+    margin: 20px auto;     /* Отступ сверху и центрирование */
+    padding: 15px 30px;    /* Размеры кнопки */
+    text-align: center;    /* Текст по центру */
+    order: 3;             /* Если используется flex/grid, будет после court-layout (order:2) */
+    font-size: 1.2em;
+    width: auto;
+    min-width: 200px;
+}
+
+/* Эффекты при наведении */
+.control-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.control-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.primary {
+    background: #28a745;
+    color: white;
+}
+
+.cancel {
+    background: #6c757d;
+    color: white;
+}
+
+/* Стили для кнопки подачи */
+.serve-btn {
+    background: #9C27B0;
+    color: white;
+}
+
+/* Стили для блока подачи */
+.serving-row {
+    display: flex;
+    gap: 1px;
+    margin-bottom: 1px;
+}
+
+.serving-field {
+    flex: 1;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 25px;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.serving-field:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.ace-serve {
+    background-color: #c8e6c9;
+    border: 2px solid #4CAF50;
+}
+
+.normal-serve {
+    background-color: #ffffff;
+    border: 2px solid #bdbdbd;
+}
+
+.error-serve {
+    background-color: #ffcdd2;
+    border: 2px solid #f44336;
+}
+
+
+/* Стили для модального окна настроек */
+.settings-modal {
+    display: none;
+    position: fixed;
+    z-index: 101;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.settings-modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 5px;
+}
+
+.settings-buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.settings-modal-btn {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 6px;
+    background: #f0f0f0;
+    color: #333;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.settings-modal-btn:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+.settings-modal-btn.warning-btn {
+    background: #FFA500;
+    color: white;
+}
+
+.settings-modal-btn.danger-btn {
+    background: #DC143C;
+    color: white;
+}
+
+.settings-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.settings-buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.settings-action-btn {
+    padding: 12px;
+    background: #4a76a8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.settings-action-btn:hover {
+    background: #3a5f8a;
+}
+
+/* Анимация появления модального окна */
+.modal {
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* Стили для кнопки настроек в заголовке */
+.settings-icon-btn {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.settings-icon-btn:hover {
+    background-color: rgba(0,0,0,0.1);
+    transform: rotate(30deg);
+}
+
+/* Убираем старый game-controls */
+.game-controls {
+    display: none;
+}
+
+/* Обновленные стили для модального окна */
+.settings-modal-content {
+    max-width: 300px;
+    width: 90%;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.settings-buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.settings-modal-btn {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 6px;
+    background: #f0f0f0;
+    color: #333;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.settings-modal-btn:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+.settings-modal-btn.warning-btn {
+    background: #FFA500;
+    color: white;
+}
+
+.settings-modal-btn.danger-btn {
+    background: #DC143C;
+    color: white;
+}
+
+/* Стили для модального окна атак */
+.attack-modal-content {
+    max-width: 250px;
+    width: 90%;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.attack-buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.attack-option-btn {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #f0f0f0;
+    color: #333;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.attack-option-btn:hover {
+    background: #e0e0e0;
+}
+
+.zone-button {
+    /* Основные стили */
+    min-height: 60px;              /* Увеличенная высота */
+    width: 100%;                   /* На всю ширину ячейки */
+    display: flex;
+    align-items: center;           /* Вертикальное выравнивание */
+    justify-content: center;       /* Горизонтальное выравнивание */
+    cursor: pointer;               /* Курсор-указатель */
+    box-sizing: border-box;
+
+    /* Визуальные улучшения */
+    border: 1px solid #ccc;       /* Граница для четкости */
+    border-radius: 4px;           /* Скругленные углы */
+    background-color: #f8f8f8;    /* Светлый фон */
+    transition: all 0.2s ease;    /* Плавные анимации */
+
+    /* Текст */
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    padding: 5px;                 /* Отступы внутри кнопки */
+}
+
+.zone-button:hover {
+    background-color: #e0e0e0;    /* Эффект при наведении */
+    transform: scale(1.02);       /* Легкое увеличение */
+}
+
+.zone-button:active {
+    background-color: #d0d0d0;    /* Эффект нажатия */
+}
+
+.additional-buttons {
+    width: 100%;
+    /* max-width: 800px; /* Должно совпадать с court-layout */
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    background-color: #e7d7d7;
+}
+
+
+/* Адаптация для мобильных устройств*/
+
+/* Мобильные телефоны (до 600px) */
+@media (max-width: 600px) {
+    .game-controls {
+        justify-content: flex-start;
+        padding: 10px;
+    }
+
+    .control-button {
+        min-width: 100px;
+        padding: 1px 1px;
+        font-size: 0.9em;
+    }
+
+    .court-layout {
+        grid-template-columns: repeat(3, 1fr);;     /* 3 в ряд */
+    }
+    .players-header {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .player-tag {
+        padding: 6px 12px 6px 24px;
+        font-size: 0.85em;
+    }
+
+    .player-tag::before {
+        left: 6px;
+    }
+    .zone-button {
+        min-height: 70px;    /* Еще больше для тапов */
+        font-size: 18px;
+    }
+}
+
+/* Планшеты (601-1023px) */
+/* мой телефон и планшет*/
+@media screen and (min-width: 601px) and (max-width: 1023px) {
+    .court-container {
+        max-width: 100%
+        }
+    }
+    .court-layout {
+        grid-template-columns: repeat(3, 1fr);;     /* 3 в ряд */
+        max-width: 100%
+    }
+
+    .game-controls {
+        justify-content: flex-start;
+        padding: 10px;
+    }
+
+    .control-button {
+        min-width: 100px;
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+
+    .players-header {
+        padding: 1px;
+        gap: 2px;
+    }
+
+    .player-tag {
+        padding: 6px 12px 6px 24px;
+        font-size: 0.85em;
+    }
+
+    .player-tag::before {
+        left: 6px;
+    }
+    .zone-button {
+        min-height: 70px;    /* Еще больше для тапов */
+        font-size: 18px;
+    }
+}
+
+/* Десктопы (min-width: 1024) and (max-width: 1800px) */
+@media (min-width: 1025px) and (max-width: 1800px){
+    .action-field {
+        font-size: 40px;
+    }
+    .court-container {
+        max-width: 770px
+    }
+
+    .court-layout {
+        grid-template-columns: repeat(3, 1fr);;     /* 3 в ряд */
+        max-width: 770px
+    }
+
+    .game-controls {
+        justify-content: flex-start;
+        padding: 10px;
+    }
+
+    .control-button {
+        min-width: 140px;
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+
+
+    .players-header {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .player-tag {
+        padding: 6px 12px 6px 24px;
+        font-size: 0.85em;
+    }
+
+    .player-tag::before {
+        left: 6px;
+    }
+    .zone-button {
+        min-height: 70px;    /* Еще больше для тапов */
+        font-size: 18px;
+    }
+}
+
+/* Стили модального окна замен */
+#substitution-modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 5px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.substitute-players-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.substitute-player-btn {
+    padding: 10px;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.substitute-player-btn:hover {
+    background: #e0e0e0;
+}
+
+
+/* Стили для подсветки зоны замены игрока - НАЧАЛО*/
+.player-field.highlighted {
+    box-shadow: 0 0 0 3px #4CAF50;
+    background-color: rgba(76, 175, 80, 0.2);
+    transition: all 0.3s ease;
+}
+
+.modal-open {
+    overflow: hidden; /* Запрещаем скролл страницы при открытом модальном окне */
+}
+/* Стили для подсветки зоны замены игрока - КОНЕЦ */
+
+
+/* Для плавного закрытия модального окна - НАЧАЛО */
+.modal {
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    transition: transform 0.3s ease;
+    transform: translateY(-20px);
+}
+
+.modal.show {
+    opacity: 1;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+/* Для плавного закрытия модального окна - КОНЕЦ */

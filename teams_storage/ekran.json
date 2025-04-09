@@ -1,0 +1,166 @@
+{
+    "team": "ekran",
+    "players": [
+        {
+            "number": "1",
+            "last_name": "Максимов",
+            "first_name": "Гоша",
+            "role": "Первый темп",
+            "front_pos": "3",
+            "back_pos": "6",
+            "color": "#ba55d3"
+        },
+        {
+            "number": "2",
+            "last_name": "Сампо",
+            "first_name": "Сергей",
+            "role": "Доигровщик",
+            "front_pos": "3",
+            "back_pos": "5",
+            "color": "#4682b4"
+        },
+        {
+            "number": "3",
+            "last_name": "Наумчик",
+            "first_name": "Егор",
+            "role": "Доигровщик",
+            "front_pos": "4",
+            "back_pos": "5",
+            "color": "#4682b4"
+        },
+        {
+            "number": "4",
+            "last_name": "Катков",
+            "first_name": "Артем",
+            "role": "Первый темп",
+            "front_pos": "3",
+            "back_pos": "6",
+            "color": "#ba55d3"
+        },
+        {
+            "number": "5",
+            "last_name": "Негодайло",
+            "first_name": "Саша",
+            "role": "Пасующий",
+            "front_pos": "2",
+            "back_pos": "1",
+            "color": "#f3ff33"
+        },
+        {
+            "number": "7",
+            "last_name": "Гунько",
+            "first_name": "Рома",
+            "role": "Пасующий",
+            "front_pos": "2",
+            "back_pos": "1",
+            "color": "#f3ff33"
+        },
+        {
+            "number": "8",
+            "last_name": "Кислухин",
+            "first_name": "Андрей",
+            "role": "Доигровщик",
+            "front_pos": "4",
+            "back_pos": "5",
+            "color": "#4682b4"
+        },
+        {
+            "number": "9",
+            "last_name": "Иванов",
+            "first_name": "Миша",
+            "role": "Пасующий",
+            "front_pos": "2",
+            "back_pos": "1",
+            "color": "#f3ff33"
+        },
+        {
+            "number": "10",
+            "last_name": "Кабак",
+            "first_name": "Миша",
+            "role": "Пасующий",
+            "front_pos": "2",
+            "back_pos": "1",
+            "color": "#f3ff33"
+        },
+        {
+            "number": "11",
+            "last_name": "Кутынко",
+            "first_name": "Максим",
+            "role": "Первый темп",
+            "front_pos": "3",
+            "back_pos": "6",
+            "color": "#ba55d3"
+        },
+        {
+            "number": "12",
+            "last_name": "Буреев",
+            "first_name": "Никита",
+            "role": "Доигровщик",
+            "front_pos": "4",
+            "back_pos": "5",
+            "color": "#4682b4"
+        },
+        {
+            "number": "13",
+            "last_name": "Озолин",
+            "first_name": "Кирилл",
+            "role": "Либеро",
+            "front_pos": "4",
+            "back_pos": "6",
+            "color": "#228b22"
+        },
+        {
+            "number": "14",
+            "last_name": "Воронцов",
+            "first_name": "Слава",
+            "role": "Доигровщик",
+            "front_pos": "4",
+            "back_pos": "5",
+            "color": "#4682b4"
+        },
+        {
+            "number": "15",
+            "last_name": "Авдеев",
+            "first_name": "Миша",
+            "role": "Первый темп",
+            "front_pos": "3",
+            "back_pos": "6",
+            "color": "#33fff3"
+        },
+        {
+            "number": "16",
+            "last_name": "Бычков",
+            "first_name": "Дима",
+            "role": "Доигровщик",
+            "front_pos": "4",
+            "back_pos": "5",
+            "color": "#4682b4"
+        },
+        {
+            "number": "18",
+            "last_name": "Горошко",
+            "first_name": "Максим",
+            "role": "Пасующий",
+            "front_pos": "2",
+            "back_pos": "1",
+            "color": "#f3ff33"
+        },
+        {
+            "number": "19",
+            "last_name": "Храповицкий",
+            "first_name": "Арсений",
+            "role": "Доигровщик",
+            "front_pos": "4",
+            "back_pos": "5",
+            "color": "#4682b4"
+        }
+    ],
+    "starting_lineup": {
+        "pos_1": "11",
+        "pos_2": "5",
+        "pos_3": "8",
+        "pos_4": "4",
+        "pos_5": "7",
+        "pos_6": "15"
+    }
+}

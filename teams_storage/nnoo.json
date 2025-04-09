@@ -1,0 +1,31 @@
+{
+    "team": "nnoo",
+    "players": [
+        {
+            "number": "1",
+            "last_name": "первый",
+            "first_name": "первый",
+            "role": "Доигровщик",
+            "front_pos": "2",
+            "back_pos": "1",
+            "color": "#ff5733"
+        },
+        {
+            "number": "2",
+            "last_name": "второй",
+            "first_name": "второй",
+            "role": "Доигровщик",
+            "front_pos": "2",
+            "back_pos": "1",
+            "color": "#ff5733"
+        }
+    ],
+    "starting_lineup": {
+        "pos_1": "",
+        "pos_2": "",
+        "pos_3": "1",
+        "pos_4": "",
+        "pos_5": "",
+        "pos_6": ""
+    }
+}

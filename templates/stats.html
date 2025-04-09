@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Статистика матчей</title>
+</head>
+<body>
+    <h1>Статистика матчей</h1>
+    {% if data %}
+        <pre>{{ data|tojson(indent=4) }}</pre>
+    {% else %}
+        <p>Нет данных о матчах</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}">На главную</a>
+</body>
+</html>

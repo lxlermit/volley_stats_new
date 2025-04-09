@@ -1,0 +1,22 @@
+{
+    "team": "tagila",
+    "players": [
+        {
+            "number": "15",
+            "last_name": "Авдеев",
+            "first_name": "Миша",
+            "role": "Доигровщик",
+            "front_pos": "2",
+            "back_pos": "1",
+            "color": "#d64929"
+        }
+    ],
+    "starting_lineup": {
+        "pos_1": "15",
+        "pos_2": "",
+        "pos_3": "",
+        "pos_4": "",
+        "pos_5": "",
+        "pos_6": ""
+    }
+}

@@ -1,0 +1,72 @@
+/* teams_edit.css */
+.team-management {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-title {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.team-list {
+    margin-top: 20px;
+}
+
+.team-card {
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.team-card:hover {
+    transform: translateY(-3px);
+}
+
+.team-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.team-name {
+    margin: 0;
+    color: #3498db;
+    font-size: 1.4rem;
+}
+
+.player-count {
+    background-color: #e74c3c;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+}
+
+.team-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-outline-primary {
+    color: #3498db;
+    border-color: #3498db;
+}
+
+.btn-outline-primary:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-outline-danger {
+    color: #e74c3c;
+    border-color: #e74c3c;
+}
+
+.btn-outline-danger:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+

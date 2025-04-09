@@ -1,0 +1,91 @@
+{
+    "meta": {
+        "date": "2025-04-08 21:35:59",
+        "filename": "tagila_2025_04_08__21_35_Соперник.json",
+        "city": "Санкт-Петербург",
+        "address": "",
+        "competition": "",
+        "our_team": "tagila",
+        "opponent": "Соперник",
+        "status": "ongoing",
+        "team_lineup": [
+            "15"
+        ],
+        "starting_lineup": {
+            "pos_1": {
+                "number": "15",
+                "name": "Авдеев М.",
+                "role": "Доигровщик"
+            }
+        }
+    },
+    "sets": {},
+    "players_stats": {
+        "15": {
+            "player_info": {
+                "number": "15",
+                "last_name": "Авдеев",
+                "first_name": "Миша",
+                "role": "Доигровщик",
+                "front_pos": "2",
+                "back_pos": "1",
+                "color": "#d64929"
+            },
+            "actions": {
+                "serving": {
+                    "ace": 0,
+                    "good": 0,
+                    "bad": 0,
+                    "error": 0,
+                    "total": 0
+                },
+                "attack": {
+                    "win_total": 0,
+                    "shot_good": 0,
+                    "shot_bad": 0,
+                    "no_point": 0,
+                    "error_total": 0
+                },
+                "block": {
+                    "win": 0,
+                    "cover": 0,
+                    "error": 0,
+                    "total": 0
+                },
+                "receive": {
+                    "excellent": 0,
+                    "good": 0,
+                    "bad": 0,
+                    "error": 0,
+                    "total": 0
+                },
+                "set": {
+                    "excellent": 0,
+                    "good": 0,
+                    "bad": 0,
+                    "error": 0,
+                    "total": 0
+                },
+                "defence": {
+                    "excellent": 0,
+                    "good": 0,
+                    "bad": 0,
+                    "error": 0,
+                    "total": 0
+                }
+            },
+            "time_played": 0,
+            "rotations": []
+        }
+    },
+    "match_events": [],
+    "team_stats": {
+        "total_points": 0,
+        "attack_points": 0,
+        "block_points": 0,
+        "serve_points": 0,
+        "opponent_errors": 0,
+        "timeouts_used": 0,
+        "substitutions_used": 0
+    }
+}

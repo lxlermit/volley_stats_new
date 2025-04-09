@@ -1,0 +1,49 @@
+/* Базовые стили для всего приложения */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    width: 100%;
+    min-width: 778px;  /* Не уже 778px */
+    max-width: 1200px; /* Но не шире 1200px */
+    margin: 0 auto;
+    padding: 2px;
+    box-sizing: border-box; /* Чтобы padding не увеличивал ширину */
+    user-select: none; /* Запрещаем выделение */
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}

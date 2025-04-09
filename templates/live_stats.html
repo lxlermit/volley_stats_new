@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!--    Чтобы предотвратить увеличение контента при двойном касании на мобильных устройствах, добавьте следующие решения:-->
+    <!--    maximum-scale=1 - блокирует увеличение-->
+    <!--    user-scalable=no - отключает зум жестами-->
+    <!--    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
+
+    <title>Расстановка игроков</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/live_stats.css') }}">
+</head>
+<body>
+    <div class="container">
+        {% include 'live_stats/scoreboard.html' %}
+
+        {% include 'live_stats/score_in_sets.html' %}
+
+        {% include 'live_stats/court.html' %}
+
+        {% include 'live_stats/additional_buttons.html' %}
+
+        <div id="remove-player-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">X</span>
+                <h2>Отправить игрока на скамейку?</h2>
+                <p id="player-to-remove-info"></p>
+                <div class="modal-buttons">
+                    <button id="confirm-remove" class="button primary">Да</button>
+                    <button id="cancel-remove" class="button cancel">Нет</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="settings-modal" class="modal">
+            <div class="modal-content settings-modal-content">
+                <span class="close">X</span>
+                <h2>Настройки матча</h2>
+                <div class="settings-buttons-container">
+                    <button class="settings-modal-btn" id="clear-to-serve">Очистка до подачи</button>
+                    <button class="settings-modal-btn" id="undo-last-action">Отмена до предыдущей подачи</button>
+                    <button class="settings-modal-btn" id="save-match">Сохранить</button>
+                    <button class="settings-modal-btn warning-btn" id="end-set-from-settings">Конец партии</button>
+                    <button class="settings-modal-btn danger-btn" id="end-game-from-settings">Конец игры</button>
+                    <button class="settings-modal-btn" id="clear-players">Очистить игроков</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            window.playersData = {{ players_data|tojson }};
+        </script>
+
+<!--        <script src="{{ url_for('static', filename='js/live_stats.js') }}"></script>-->
+        <script type="module" src="/static/js/live_stats/main.js"></script>
+<!--        <script src="{{ url_for('static', filename='js/live_stats/main.js') }}"></script>-->
+
+
+
+    </div>
+
+    <script type="module">
+        // Импортируем модули
+        import { initSubstitutions } from "{{ url_for('static', filename='js/live_stats/features/substitutions.js') }}";
+        import { initTeamManagement } from "{{ url_for('static', filename='js/live_stats/features/team_management.js') }}";
+
+        // Передаем данные из шаблона в JS
+        window.playersData = {{ players_data|tojson }};
+        window.teamData = {{ team_data|tojson }};
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', () => {
+            initSubstitutions();
+            initTeamManagement();
+        });
+    </script>
+</body>
+</html>

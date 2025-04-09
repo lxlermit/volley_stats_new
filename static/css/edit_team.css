@@ -1,0 +1,187 @@
+.edit-team-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-team-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.edit-team-header h2 {
+    color: #2c3e50;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.players-grid-header {
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr 120px 100px 100px 100px;
+    gap: 10px;
+    padding: 10px;
+    background: #f8f9fa;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.players-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.player-row {
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr 120px 100px 100px 100px;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.player-row:hover {
+    background: #e9ecef;
+}
+
+.form-input, .form-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-input:focus, .form-select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.color-picker-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.color-picker {
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.color-value {
+    font-size: 12px;
+    color: #666;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s;
+}
+
+.btn-save {
+    background: #28a745;
+    color: white;
+    border: none;
+}
+
+.btn-save:hover {
+    background: #218838;
+}
+
+.btn-add {
+    background: #17a2b8;
+    color: white;
+    border: none;
+}
+
+.btn-add:hover {
+    background: #138496;
+}
+
+.btn-back {
+    background: #6c757d;
+    color: white;
+    border: none;
+    text-decoration: none;
+}
+
+.btn-back:hover {
+    background: #5a6268;
+    color: white;
+}
+
+/* Starting Lineup Section */
+.starting-lineup-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.volleyball-court {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    padding: 1rem 0;
+}
+
+.court-row {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.front-row {
+    margin-bottom: 2rem;
+}
+
+.court-position {
+    width: 180px;
+    text-align: center;
+}
+
+.court-position label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+/* Визуальная линия сетки */
+.volleyball-court::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #dee2e6;
+    z-index: 0;
+}

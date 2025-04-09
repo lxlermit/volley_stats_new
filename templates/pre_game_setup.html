@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки перед тем, как начать матч | Volleyball Stats</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <style>
+        /* Основные стили */
+        body {
+            background-color: #f5f7fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-container {
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .match-container {
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .match-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .match-header h1 {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .match-header p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        /* Форма */
+        .match-form {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #34495e;
+            font-size: 1.1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .form-control:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        /* Кнопка */
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .submit-btn:hover {
+            background-color: #2ecc71;
+        }
+
+        /* Адаптация */
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 15px;
+            }
+
+            .match-form {
+                padding: 20px;
+            }
+
+            .match-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .form-control {
+                padding: 10px 12px;
+            }
+
+            .submit-btn {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="match-container">
+            <header class="match-header">
+                <h1>Настройки матча</h1>
+                <p>Заполните параметры предстоящей игры</p>
+            </header>
+
+            <form method="POST" action="{{ url_for('match') }}" class="match-form">
+                <div class="form-group">
+                    <label for="city">Город:</label>
+                    <input type="text" id="city" name="city" class="form-control" value="Санкт-Петербург" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Адрес:</label>
+                    <input type="text" id="address" name="address" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="competition">Название соревнований:</label>
+                    <input type="text" id="competition" name="competition" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="opponent">Команда соперника:</label>
+                    <input type="text" id="opponent" name="opponent" class="form-control" value="Соперник" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="our_team">Наша команда:</label>
+                    <select id="our_team" name="our_team" class="form-control" required>
+                        {% for team in teams %}
+                            <option value="{{ team }}">{{ team }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Начать матч →</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

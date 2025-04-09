@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Управление командами</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/teams_edit.css') }}">
+</head>
+<body>
+    <div class="container team-management">
+        <h2 class="section-title">Управление командами</h2>
+
+        <!-- Кнопка добавления новой команды -->
+        <div class="mb-4">
+            <a href="{{ url_for('add_team') }}" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Добавить новую команду
+            </a>
+        </div>
+
+        <!-- Список команд -->
+        <div class="team-list">
+            {% for team in teams %}
+            <div class="team-card card mb-3">
+                <div class="card-body">
+                    <div class="team-header">
+                        <h3 class="team-name">{{ team.name }}</h3>
+                        <span class="badge player-count">
+                            {{ team.player_count }} игроков
+                        </span>
+                    </div>
+
+                    <div class="team-actions">
+                        <!-- Кнопка редактирования -->
+                        <a href="{{ url_for('edit_existing_team', team_name=team.name) }}"
+                           class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-edit"></i> Редактировать
+                        </a>
+
+                        <!-- Кнопка просмотра -->
+                        <a href="{{ url_for('team_detail', team_name=team.name) }}"
+                           class="btn btn-sm btn-outline-info">
+                            <i class="fas fa-eye"></i> Просмотр
+                        </a>
+
+                        <!-- Кнопка удаления с подтверждением -->
+                        <form action="{{ url_for('delete_team') }}" method="POST" class="d-inline">
+                            <input type="hidden" name="team_name" value="{{ team.name }}">
+                            <button type="submit" class="btn btn-sm btn-outline-danger"
+                                    onclick="return confirm('Удалить команду {{ team.name }}?')">
+                                <i class="fas fa-trash"></i> Удалить
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="alert alert-info">
+                Нет созданных команд. Добавьте первую команду.
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
